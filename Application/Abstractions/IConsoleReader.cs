@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿namespace Application.Abstractions;
 
-namespace Application.Abstractions
+public interface IConsoleReader
 {
-    public interface IConsoleReader
-    {
-        public long[] ReadClientIds();
-    }
+    public long[] ReadClientIds();
 }

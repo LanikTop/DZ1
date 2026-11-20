@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿namespace Application.Abstractions;
 
-namespace Application.Abstractions
+public interface IReportDAO
 {
-    public interface IReportDAO
-    {
-        float GetClientOrdersSum(long clientId);
+    decimal GetClientOrdersSum(long clientId);
 
-        string GetClientFavoriteItemName(long clientId);
-    }
+    string GetClientFavoriteItemName(long clientId);
 }

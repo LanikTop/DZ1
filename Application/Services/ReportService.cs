@@ -1,29 +1,24 @@
 ﻿using Application.Abstractions;
-using Application.Exceptions;
 using Domain.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace Application.Services
+namespace Application.Services;
+
+public class ReportService : IReportService
 {
-    public class ReportService : IReportService
+    private readonly IReportDAO _reportDAO;
+
+    public ReportService(IReportDAO reportDAO)
     {
-        private readonly IReportDAO _reportDAO;
+        _reportDAO = reportDAO;
+    }
 
-        public ReportService(IReportDAO reportDAO)
+    public Report MakeReport(long clientId)
+    {
+        return new Report
         {
-            _reportDAO = reportDAO;
-        }
-
-        public Report MakeReport(long clientId)
-        {
-            return new Report
-            {
-                ClientId = clientId,
-                OrderSum = _reportDAO.GetClientOrdersSum(clientId),
-                FavoriteItemName = _reportDAO.GetClientFavoriteItemName(clientId)
-            };
-        }
+            ClientId = clientId,
+            OrderSum = _reportDAO.GetClientOrdersSum(clientId),
+            FavoriteItemName = _reportDAO.GetClientFavoriteItemName(clientId)
+        };
     }
 }

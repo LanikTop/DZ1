@@ -1,12 +1,8 @@
 ﻿using Domain.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace Application.Abstractions
+namespace Application.Abstractions;
+
+public interface IReportWriter
 {
-    public interface IReportWriter
-    {
-        void WriteReports(IEnumerable<Report> reports);
-    }
+    void WriteReports(IEnumerable<Report> reports);
 }

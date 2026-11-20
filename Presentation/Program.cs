@@ -14,21 +14,19 @@ if (reportType != "console" && reportType != "file")
 }
 
 var services =  new ServiceCollection();
-
-if (reportType == "console")    
+if (reportType == "console")
+{
     services.AddSingleton<IReportWriter, ConsoleReportWriter>();
+}
 else
+{
     services.AddSingleton<IReportWriter, FileReportWriter>();
-
+}
 services.AddSingleton<IConsoleReader, ConsoleReader>();
-
 services.AddSingleton<IReportService, ReportService>();
-
 services.AddSingleton<IReportDAO, ReportDAO>();
-
 services.AddSingleton<ReportApp>();
 
 var serviceProvider = services.BuildServiceProvider();
-
 var app = serviceProvider.GetRequiredService<ReportApp>();
 app.Run();
