@@ -3,4 +3,5 @@
   <Project Path="Domain/Domain.csproj" />
   <Project Path="Infrastructure/Infrastructure.csproj" />
   <Project Path="Presentation/Presentation.csproj" />
+  <Project Path="ProjectTests/ProjectTests.csproj" Id="4fe53c0f-54ca-484e-8466-586acf130d25" />
 </Solution>
